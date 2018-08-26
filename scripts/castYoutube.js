@@ -2,12 +2,15 @@ let youtubedl = require('youtube-dl');
 let ChromecastAPI = require('chromecast-api')
 
 let url = 'https://www.youtube.com/watch?v=_1EOGuua9h0';
-let browser = new ChromecastAPI.Browser()
+
+let chromecastName = 'Ashley and Brad 4evr TV';
+
+let browser = new ChromecastAPI.Browser();
 
 let deviceInUse;
 
 browser.on('deviceOn', function(device){
-    if(device.config.name == 'Ashley and Brad 4evr TV'){
+    if(device.config.name == chromecastName){
         deviceInUse = device;
     }
 })
